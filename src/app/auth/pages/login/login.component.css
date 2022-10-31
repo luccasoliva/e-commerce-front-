@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+  
+.container form .title{
+  font-size:26px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  position: relative;
+  color:#0CA789;
+  text-align: center;
+}
+mat-card {
+  width: 40vw;
+  max-height: 635px;
+  margin-bottom: 100px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  border-radius: 5px;
+  overflow: auto; 
+  border: 2px solid #0CA789;
+}
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+.container{
+  background: #fff;
+  width: 100%;
+  padding: 25px 30px;
+  border-radius: 5px;
+  font-family: 'Open Sans', sans-serif;
+  flex-direction: row;
+  justify-content: center;
+  display: flex;  
+}
+.box {
+  width: 350px;
+  background: #fff;
+}
+
+.container form .input-box{
+  width: 100%;
+  height: 40px;
+  margin-top: 20px;
+  position: relative;
+}
+.container form .underline::after{
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: #0CA789;
+  left: 0;
+  bottom: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: all 0.3s ease;
+}
+
+
+.container form .input-box input:hover{
+  background: linear-gradient( to left,  #41eecb 0%, #0CA789 100%);
+}
+
+.container form .input-box input{
+  width: 100%;
+  height: 100%;
+  outline: none;
+  font-size: 15px;
+  border: none;
+}
+.container form .underline::before{
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background:#0CA789;
+  left: 0;
+  bottom: 0;
+}
+
+.btn{
+  background:#0CA789;
+  color: white;
+  margin-top: 10px;
+}
+.text{
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.recaptcha2 {
+  display: flex;
+  align-self: center;
+}

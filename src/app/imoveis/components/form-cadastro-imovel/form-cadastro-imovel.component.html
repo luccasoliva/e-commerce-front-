@@ -1,0 +1,398 @@
+<div class="container">
+  <div class="box">
+    <form [formGroup]="cadastroImovelForm" (ngSubmit)="salvar()">
+      <mat-stepper orientation="horizontal" linear animationDuration="800">
+        <mat-step [stepControl]="cadastroImovelForm">
+          <div class="title">Cadastre seu Imovel</div>
+          <mat-form-field class="input-box underline" appearance="legacy">
+            <mat-label>Titulo</mat-label>
+            <input
+              type="text"
+              placeholder="Ex: Tipo do Imovel, valor, localização"
+              matInput
+              formControlName="titulo"
+            />
+            <mat-error><span>Campo Obrigatório</span></mat-error>
+          </mat-form-field>
+          <div class="input-box underline">
+            <mat-checkbox
+              #checkAlugar
+              formControlName="contratoAluguel"
+              value="contratoAluguel"
+              >Alugar</mat-checkbox
+            >
+            <ng-container *ngIf="checkAlugar.checked">
+              <mat-form-field
+                appearance="legacy"
+                floatLabel="always"
+                class="valor"
+              >
+                <mat-label>Valor aluguel</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  formControlName="valorAluguel"
+                  class="example-right-align"
+                  placeholder="0"
+                />
+                <span matPrefix>R$&nbsp;</span>
+                <span matSuffix>.00</span>
+              </mat-form-field>
+            </ng-container>
+          </div>
+          <div class="input-box underline">
+            <mat-checkbox
+              #checkVender
+              formControlName="contratoVenda"
+              value="contratoVenda"
+              >Vender</mat-checkbox
+            >
+            <ng-container *ngIf="checkVender.checked">
+              <mat-form-field
+                appearance="legacy"
+                floatLabel="always"
+                class="valor"
+              >
+                <mat-label>Valor Venda</mat-label>
+                <input
+                  matInput
+                  formControlName="valorVenda"
+                  type="number"
+                  class="example-right-align"
+                  placeholder="0"
+                />
+                <span matPrefix>R$&nbsp;</span>
+                <span matSuffix>.00</span>
+              </mat-form-field>
+            </ng-container>
+          </div>
+
+          <mat-form-field appearance="legacy" class="input-box underline">
+            <mat-label>Tipo do Imóvel</mat-label>
+            <mat-select formControlName="tipoImovel" name="tipoImovel">
+              <mat-option
+                *ngFor="let tipoI of tipoImovelEnum; let i = index"
+                [value]="tipoI.tipo"
+              >
+                {{ tipoI.nome }}
+              </mat-option>
+            </mat-select>
+            <mat-error><span>Campo Obrigatório</span></mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="legacy" class="input-box underline">
+            <mat-label>Finalidade do Imóvel</mat-label>
+            <mat-select
+              formControlName="finalidadeImovel"
+              name="finalidadeImovel"
+            >
+              <mat-option
+                *ngFor="let finalidadeI of finalidadeImovelEnum; let i = index"
+                [value]="finalidadeI.tipo"
+              >
+                {{ finalidadeI.nome }}
+              </mat-option>
+            </mat-select>
+            <mat-error><span>Campo Obrigatório</span></mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="legacy" class="input-box underline">
+            <mat-label>Quartos</mat-label>
+            <input
+              type="number"
+              placeholder="0"
+              matInput
+              formControlName="quartos"
+            />
+            <mat-error><span>Campo Obrigatório</span></mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="legacy" class="input-box underline">
+            <mat-label>Banheiros</mat-label>
+            <input
+              type="number"
+              placeholder="0"
+              matInput
+              formControlName="banheiros"
+            />
+            <mat-error><span>Campo Obrigatório</span></mat-error>
+          </mat-form-field>
+          <mat-form-field class="input-box underline" appearance="legacy">
+            <mat-label>Suítes</mat-label>
+            <input
+              type="number"
+              placeholder="0"
+              matInput
+              formControlName="suite"
+            />
+            <mat-error><span>Campo Obrigatório</span></mat-error>
+          </mat-form-field>
+          <mat-form-field class="input-box underline" appearance="legacy">
+            <mat-label>Vagas</mat-label>
+            <input
+              type="number"
+              placeholder="0"
+              matInput
+              formControlName="vagas"
+            />
+            <mat-error><span>Campo Obrigatório</span></mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="input-box underline" appearance="legacy">
+            <mat-label>Área (&#13217;)</mat-label>
+            <input
+              type="number"
+              class="example-right-align"
+              placeholder="0"
+              matInput
+              formControlName="area"
+            />
+
+            <span matSuffix>.00</span>
+            <mat-error><span>Campo Obrigatório</span></mat-error>
+          </mat-form-field>
+
+          <mat-form-field
+            class="input-box underline"
+            appearance="legacy"
+            [formGroup]="cadastroCaracteristica"
+          >
+            <mat-label>Caracteristicas</mat-label>
+            <mat-select multiple formControlName="caracteristicas">
+              <mat-option
+                *ngFor="let caracteristicas of caracteristica"
+                [value]="caracteristicas"
+                >{{ caracteristicas.caracteristica }}</mat-option
+              >
+            </mat-select>
+            <mat-error><span>Campo Obrigatório</span></mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="input-box" appearance="legacy">
+            <mat-label>Descrição</mat-label>
+            <textarea
+              matInput
+              formControlName="descricao"
+              name="descricao"
+            ></textarea>
+          </mat-form-field>
+
+          <button
+            matStepperNext
+            type="button"
+            class="input-box btnStep"
+            mat-stroked-button
+          >
+            Avançar
+          </button>
+        </mat-step>
+
+        <mat-step [stepControl]="cadastroEnderecoForm">
+          <form [formGroup]="cadastroEnderecoForm" (ngSubmit)="salvar()">
+            <div class="title">Cadastre o Endereço do Imóvel</div>
+
+            <mat-form-field class="input-box underline" appearance="legacy">
+              <mat-label>CEP</mat-label>
+              <input
+                type="text"
+                placeholder="Ex: 11222333"
+                matInput
+                formControlName="cep"
+                maxlength="8"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                id="cep"
+                #cep
+              />
+
+              <span matSuffix>
+                <button
+                  mat-icon-button
+                  type="button"
+                  (click)="consultaCep(this.cep.value, cadastroEnderecoForm)"
+                >
+                  <mat-icon>search</mat-icon>
+                </button>
+              </span>
+
+              <mat-error>
+                <span
+                  *ngIf="cadastroEnderecoForm.get('cep')?.getError('required')"
+                >
+                  Campo Obrigatório
+                </span>
+                <span
+                  *ngIf="cadastroEnderecoForm.get('cep')?.getError('minlength')"
+                >
+                  Este campo deve ter 8 caracteres
+                </span>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="input-box underline" appearance="legacy">
+              <mat-label>Logradouro</mat-label>
+              <input
+                type="text"
+                placeholder="Ex: Avenida São Francisco"
+                matInput
+                formControlName="logradouro"
+              />
+              <mat-error><span>Campo Obrigatório</span></mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="input-box underline" appearance="legacy">
+              <mat-label>Número</mat-label>
+              <input
+                type="number"
+                placeholder="Ex: 0"
+                matInput
+                formControlName="numero"
+              />
+              <mat-error><span>Campo Obrigatório</span></mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="input-box underline" appearance="legacy">
+              <mat-label>Complemento</mat-label>
+              <input
+                type="text"
+                placeholder="Ex: Ao lado da praça"
+                matInput
+                formControlName="complemento"
+              />
+            </mat-form-field>
+
+            <mat-form-field class="input-box underline" appearance="legacy">
+              <mat-label>Bairro</mat-label>
+              <input
+                type="text"
+                placeholder="Ex: Rio Verde"
+                matInput
+                formControlName="bairro"
+              />
+              <mat-error><span>Campo Obrigatório</span></mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="input-box underline" appearance="legacy">
+              <mat-label>Cidade</mat-label>
+              <input
+                type="text"
+                placeholder="Ex: Belo Horizonte"
+                matInput
+                formControlName="cidade"
+              />
+              <mat-error><span>Campo Obrigatório</span></mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="input-box underline" appearance="legacy">
+              <mat-label>UF</mat-label>
+              <input
+                type="text"
+                placeholder="Ex: MG"
+                matInput
+                formControlName="uf"
+                id="uppercase"
+                maxlength="2"
+              />
+              <mat-error><span>Campo Obrigatório</span></mat-error>
+            </mat-form-field>
+
+            <div>
+              <button
+                matStepperPrevious
+                type="button"
+                class="input-box btnStep"
+                mat-stroked-button
+              >
+                Voltar
+              </button>
+
+              <button
+                matStepperNext
+                type="button"
+                class="input-box btnStep"
+                mat-stroked-button
+              >
+                Avançar
+              </button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step>
+          <!--     //fotoTeste -->
+          <div
+            *ngIf="fotoPreview && fotoPreview.length > 0; else semFoto"
+            class="carousel-container fotos"
+          >
+            <img
+              *ngFor="let imagem of fotoPreview; let index = index"
+              [src]="imagem"
+              [ngClass]="{ 'imagem-ativa': indiceSelecionado === index }"
+            />
+          </div>
+
+          <ng-template #semFoto class="carousel-container fotos">
+            <img
+              src="../../../../assets/No image.jpg"
+              class="semFoto"
+              alt="Não há fotos"
+            />
+          </ng-template>
+
+          <!--     //fotoTeste -->
+          <button type="button" *ngIf="indicador" class="carousel-dot">
+            <span
+              *ngFor="let dot of fotoPreview; let index = index"
+              class="dot"
+              [ngClass]="{ ativo: indiceSelecionado === index }"
+              (click)="selecionarImagem(index)"
+            ></span>
+          </button>
+
+          <input
+            type="file"
+            accept="image/*"
+            id="file-input"
+            #fileInput
+            (change)="recuperarFoto($event)"
+            formControlName="foto"
+            multiple
+          />
+          <button
+            matTooltip="selecione uma imagem"
+            class="input-box"
+            type="button"
+            mat-stroked-button
+            (click)="fileInput.click()"
+          >
+            Selecione uma imagem
+          </button>
+
+          <button
+            matStepperPrevious
+            type="button"
+            class="input-box btnStep"
+            mat-stroked-button
+          >
+            Voltar
+          </button>
+
+          <mat-spinner
+            color="primary"
+            diameter="40"
+            class="carregarInformacoes input-box"
+            mode="indeterminate"
+            *ngIf="salvandoInformacoes; else carregarInfo"
+          ></mat-spinner>
+          <ng-template #carregarInfo>
+            <button
+              type="submit"
+              class="input-box submit"
+              mat-stroked-button
+              [disabled]="fotoPreview?.length == 0 || fotoPreview == undefined"
+            >
+              Cadastrar
+            </button>
+          </ng-template>
+        </mat-step>
+      </mat-stepper>
+    </form>
+  </div>
+</div>

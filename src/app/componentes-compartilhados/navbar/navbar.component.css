@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+
+.title {
+  font-family: 'Aboreto', cursive;
+}
+
+.links{
+    font-size: 19px;
+    font-weight: 500;
+}
+.links:hover{
+    font-size: 21px;
+    font-weight: 500;
+
+}
+
+.botaoLogin{
+    background-color: #0CA789;
+    color: white;
+}
+.fundoNavbar{
+    background-color: #282727;
+}
+
+.btns{
+    display: flex;
+    flex-direction: row;
+}
+
+.botaoLogado{
+    color: #99d5c8;
+    border: .5px solid #99d5c8;
+    display: flex;
+    align-items: center;
+}
+
+.botaoLogado:hover {
+    background-color: #0CA789;
+    color: white;
+}
+
+mat-icon {
+    margin: 0 0 0 10px;
+    padding: 0;
+}
+
+.sair {
+    margin: auto;
+}
+

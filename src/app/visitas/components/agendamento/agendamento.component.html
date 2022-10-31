@@ -1,0 +1,63 @@
+
+<mat-card *ngIf="card">
+    <mat-card-content>
+        <p class="preco" *ngIf="imovel?.contratoAluguel">
+            <span>Aluguel </span>
+            <span> R${{imovel?.valorAluguel}},00</span>
+        </p>
+        <p class="preco" *ngIf="imovel?.contratoVenda">
+            <span>Venda </span>
+            <span> R${{imovel?.valorVenda}},00</span>
+        </p>
+        <mat-divider></mat-divider>
+        <div class="vendedor">
+            <p id="nomeVendedor">{{imovel?.userVendedor?.nome}}</p>
+            <p class="contato">
+                <mat-icon>mail</mat-icon> {{imovel?.userVendedor?.username}}
+            </p>
+        </div>
+        <button *ngIf="!enviado else done" id="btnAgendar" mat-raised-button [disabled]="desabilitar" (click)="agendarVisita()">Agendar Visita</button>
+        <ng-template #done>
+            <div class="solEnviada">
+                <p> Solicitação Enviada</p>
+                <mat-icon>done_outline</mat-icon>
+            </div>
+        </ng-template>
+    </mat-card-content>
+</mat-card>
+
+<mat-card  *ngIf="agenda">
+    <mat-vertical-stepper [linear]="false" #stepper animationDuration="1000">
+        <mat-step>
+                <ng-template matStepLabel>Selecione uma data</ng-template>
+                <mat-calendar [minDate]="date" class="calendario" [(selected)]="data"></mat-calendar>
+                <div>
+                    <button class="btnVoltar btns" mat-button (click)="card = true; agenda = false">Voltar</button>
+                    <button class="btnSelecionar btns" mat-button matStepperNext>Próximo</button>
+                </div>
+        </mat-step>
+        <mat-step>
+                <ng-template matStepLabel>Selecione um horário</ng-template>
+                <ngb-timepicker [(ngModel)]="time" [seconds]="false" [hourStep]="hourStep" [minuteStep]="minuteStep">
+            </ngb-timepicker>
+                <div>
+                    <button class="btnVoltar btns" mat-button matStepperPrevious>Voltar</button>
+                    <button class="btnSelecionar btns" mat-button matStepperNext>Próximo</button>
+                </div>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Confirmar</ng-template>
+            <div class="confirmCard">
+                <p class="confirmacao">
+                    <span></span>
+                    <span>Dia: {{data | date: "dd/MM/yyyy"}}</span>
+                    <span>Horário: {{time.hour}}:{{time.minute | number: "2.0-0"}}</span>
+                </p>
+            </div>
+            <div>
+                <button class="btnVoltar btns" mat-button matStepperPrevious>Voltar</button>
+                <button class="btnSelecionar btns" mat-button (click)="confirmarVisita()">Confirmar</button>
+            </div>
+        </mat-step>
+    </mat-vertical-stepper>
+</mat-card>

@@ -1,0 +1,13 @@
+.container{
+margin:auto;
+}
+.gridfl{
+display:flex;
+flex-wrap:wrap;
+}
+canvas{
+  color: #000;
+  border: 1px solid #9999;
+  margin: 10px;
+  box-shadow: 5px 10px #888888;
+}

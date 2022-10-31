@@ -1,0 +1,263 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap");
+
+* {
+  margin: auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  position: relative;
+  background: #fff;
+  height: auto;
+  width: 100%;
+  padding: 25px 30px;
+  border-radius: 5px;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: row;
+  justify-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.box {
+  width: 30vw;
+  min-width: 300px;
+  background: #fff;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.container form .title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  position: relative;
+  color: #0ca789;
+  text-align: center;
+}
+.container form .input-box {
+  width: 100%;
+  height: 40px;
+  margin-top: 20px;
+  position: relative;
+}
+
+::ng-deep .mat-step-header .mat-step-icon-selected {
+  background-color: #0ca789;
+}
+
+::ng-deep .mat-step-icon-state-edit {
+  background-color: #0ca789 !important;
+}
+
+.line {
+  position: relative;
+  height: 1px;
+  width: 100%;
+  margin: 26px 0;
+  background-color: #d4d4d4;
+}
+
+.line::before {
+  content: "Ou";
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  color: #8b8b8b;
+  padding: 0 15px;
+}
+
+.container form .input-box input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  font-size: 14px;
+  border: none;
+}
+
+.container form .underline::before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: #0ca789;
+  left: 0;
+  bottom: 0;
+}
+
+.container form .underline::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: #0ca789;
+  left: 0;
+  bottom: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: all 0.3s ease;
+}
+
+.container form .input-box input:focus ~ .underline::after,
+.container form .input-box input:valid ~ .underline::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+::ng-deep .mat-checkbox-checked .mat-checkbox-background,
+.mat-checkbox-indeterminate .mat-checkbox-background {
+  background-color: #0ca789 !important;
+}
+
+.container form .button {
+  margin: 20px 0 10px 0;
+}
+
+.container form .input-box input:hover {
+  background: linear-gradient(to left, #41eecb6d 0%, #2e968131 100%);
+}
+
+.container .option {
+  font-size: 14px;
+  text-align: center;
+}
+
+.text {
+  text-align: center;
+}
+
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+
+#uppercase {
+  text-transform: uppercase;
+}
+
+.valor {
+  width: 140px;
+  position: absolute;
+  right: 0px;
+}
+
+.btnStep:hover {
+  background: linear-gradient(to left, #41eecb51 0%, #2e968120 100%);
+}
+
+.carousel-container {
+  position: relative;
+  margin: auto;
+  text-align: center;
+  width: 350px;
+  border-radius: 15px;
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.carousel-container img {
+  display: none;
+  border: 15px;
+}
+
+.carousel-container img.imagem-ativa {
+  display: block;
+  width: 100%;
+  height: 350px;
+  border-radius: 10px;
+}
+
+.semFoto {
+  display: block;
+  width: 100%;
+  height: 350px;
+  border-radius: 10px;
+}
+
+.carousel-dot {
+  position: relative;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin-bottom: 1rem;
+  border: none;
+  background: none;
+  flex-wrap: wrap;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 10px 5px;
+  background-color: #0ca789;
+  border-radius: 50%;
+  display: inline-block;
+  transition: opacity 0.6s ease;
+  opacity: 0.5;
+}
+.ativo,
+.dot:hover {
+  opacity: 1;
+}
+.submit {
+  width: 100%;
+  height: 35px;
+  cursor: pointer;
+  transition: all 0.8s ease;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  background-color: #0ca789;
+  color: white;
+}
+
+.fotos {
+  margin-top: 20px;
+  width: 100%;
+}
+
+#file-input {
+  display: none;
+}
+
+@media screen and (max-width: 1440px) {
+  .carousel-container img.imagem-ativa,
+  .semFoto {
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .carousel-container img.imagem-ativa,
+  .semFoto {
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .carousel-container img.imagem-ativa,
+  .semFoto {
+    height: 200px;
+  }
+}

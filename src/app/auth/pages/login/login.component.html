@@ -1,0 +1,61 @@
+<mat-card>
+  <div class="container">
+    <div class="box">
+
+      <mat-card-content>
+
+        <form action="" [formGroup]="loginForm" (ngSubmit)="login()">
+          <div class="title">
+            <img src='/assets/logo.jpg' alt="" width="30" height="30"> Imobiliaria Nosso Lar
+          </div>
+
+          <!-- <div class="gmail">
+        <a href="https://mail.google.com/"><i class="fab fa-gmail"></i>Entrar com Gmail</a>
+
+      </div>
+      <div class="facebook">
+        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i>Entrar com Facebook</a>
+      </div>
+
+      <div class="line"></div> -->
+
+          <p class="text">Entre com seu email</p>
+
+          <mat-form-field class="input-box underline" appearance="legacy">
+            <mat-label>E-mail</mat-label>
+            <input type="username" matInput placeholder="email@email.com" formControlName="username">
+            <mat-error>
+              <span>Campo obrigatório</span>
+            </mat-error>
+          </mat-form-field><br>
+
+          <mat-form-field class="input-box underline" appearance="legacy">
+            <mat-label>Senha</mat-label>
+            <input type="password" placeholder="Senha" matInput formControlName="password">
+            <mat-error>
+              <span>Campo obrigatório</span>
+            </mat-error>
+          </mat-form-field>
+
+          <div class="text py-2"><a href="#">Esqueci minha senha</a></div>
+          <div class="recaptcha2">
+            <ngx-recaptcha2 #captchaElem [siteKey]="siteKey" formControlName="recaptcha">
+            </ngx-recaptcha2>
+          </div>
+
+          <button class="btn" type="submit" mat-raised-button id="salvar" [disabled]="loginForm.invalid"
+            matTooltipPosition="above">
+            Entrar
+          </button>
+
+          <div class="text">Não tem uma conta?</div>
+          <div class="text"><a routerLink="/auth/cadastro">Cadastre-se agora</a></div>
+
+          <p class="text termos">Ao continuar, aceito os <strong>Termos de Uso</strong> e ciente da <strong> Política de
+              Privacidade</strong> .</p>
+
+        </form>
+      </mat-card-content>
+    </div>
+  </div>
+</mat-card>
