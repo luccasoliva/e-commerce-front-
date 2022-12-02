@@ -1,4 +1,4 @@
-import { Endereco } from './../../interface/endereco';
+import { Endereco } from '../../interface/endereco';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -8,9 +8,9 @@ import {newUser} from '../../interface/newUser';
   providedIn: 'root',
 })
 export class UsersService {
-  private url: string = 'https://api-nossolar.herokuapp.com/imobil/usuarios';
-  private urlEnd: string = 'https://api-nossolar.herokuapp.com/imobil/enderecos';
-  private urlAdmin: string = 'https://api-nossolar.herokuapp.com/imobil';
+  private url: string = 'http://localhost:8080/imobil/usuarios';
+  private urlEnd: string = 'http://localhost:8080/imobil/enderecos';
+  private urlAdmin: string = 'http://localhost:8080/imobil';
 
   constructor(private http: HttpClient) {}
 

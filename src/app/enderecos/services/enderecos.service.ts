@@ -7,7 +7,7 @@ import { Endereco } from '../models/endereco';
   providedIn: 'root',
 })
 export class EnderecosService {
-  private readonly url: string = 'https://api-nossolar.herokuapp.com/imobil/enderecos';
+  private readonly url: string = 'http://localhost:8080/imobil/enderecos';
   public atualizarEndereco$: BehaviorSubject<boolean> = new BehaviorSubject(
     true
   );
@@ -48,7 +48,7 @@ export class EnderecosService {
       );
   }
 
- 
+
 
 
     atualizarEndereco(endereco: Endereco): Observable<Endereco> {

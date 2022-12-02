@@ -10,7 +10,7 @@ import { User } from 'src/app/user/models/user';
 })
 export class AuthService {
 
-  private readonly baseUrl: string = 'https://api-nossolar.herokuapp.com'
+  private readonly baseUrl: string = 'http://localhost:8080'
   private helper = new JwtHelperService()
 
   constructor(

@@ -8,7 +8,7 @@ import { Visita } from '../models/visita';
 })
 export class VisitaService {
 
-  private readonly baseUrl: string = 'https://api-nossolar.herokuapp.com/imobil/visitas'
+  private readonly baseUrl: string = 'http://localhost:8080/imobil/visitas'
 
   constructor(
     private http: HttpClient

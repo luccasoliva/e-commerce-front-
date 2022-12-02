@@ -8,7 +8,7 @@ import { User } from '../models/user';
 })
 export class UserService {
 
-  private readonly baseUrl: string = 'https://api-nossolar.herokuapp.com/imobil/usuarios'
+  private readonly baseUrl: string = 'http://localhost:8080/imobil/usuarios'
   atualizarUsuarioSub$: BehaviorSubject<boolean> = new BehaviorSubject(true)
 
   constructor(
@@ -49,6 +49,6 @@ export class UserService {
     return this.http.delete<any>(`${this.baseUrl}/${idUser}`)
   }
 
- 
+
 
 }

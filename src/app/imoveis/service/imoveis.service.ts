@@ -19,7 +19,7 @@ import { ImovelComponent } from '../pages/imovel/imovel.component';
 })
 export class ImoveisService {
   private readonly url: string =
-    'https://api-nossolar.herokuapp.com/imobil/imoveis';
+    'http://localhost:8080/imobil/imoveis';
   private readonly urlCep: string = 'https://viacep.com.br/ws';
   public atualizarImovel$: BehaviorSubject<boolean> = new BehaviorSubject(true);
 
@@ -115,13 +115,13 @@ export class ImoveisService {
   buscarCep(cep: string) {
     return this.http.get(`${this.urlCep}/${cep}/json`);
   }
-  
+
 
   salvarFoto(foto: File): Observable<any> {
     return this.uploadImagem(foto);
   }
 
- 
+
 
   private uploadImagem(foto: File): Observable<string> {
     const nomeDoArquivo = Date.now() + Math.floor(Math.random() * 1000);
