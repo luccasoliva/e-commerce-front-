@@ -7,7 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 Front-end do projeto SoulCode Academy de um Ecommerce Imobiliário.
-É possível se cadastrar, cadastrar imóveis, visualizar imóveis, deletar imóveis e solicitar uma visita ao imóvel.
+É possível se cadastrar, cadastrar imóveis, visualizar imóveis, deletar imóveis, editar imóveis e solicitar agendar visitas aos imóveis.
 Há também um Dashboard para o Administrador realizar operações no Site.
 
 Backend: https://github.com/luccasoliva/Ecommerce-Imobiliaria
